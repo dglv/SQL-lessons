@@ -16,3 +16,7 @@ select screen_size, count(id) as amount from phone group by screen_size;
     Output: ram_size, price
 */
 select ram_size, min(price) as price from phone group by ram_size;
+
+/*
+
+*/
