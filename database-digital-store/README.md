@@ -9,7 +9,7 @@
 #### Technologies used:
 - SQL
 
-#### Usage
+#### Usage:
 Create schema:
 
 	mysql> source ./init/digital_store_init.sql

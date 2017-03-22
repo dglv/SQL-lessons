@@ -5,7 +5,7 @@ use digital_store;
 
 -- Product table
 create table if not exists product (
-	model varchar(50) not null,
+    model varchar(50) not null,
     manufacturer varchar(50) default null,
 
     primary key (model)
@@ -13,7 +13,7 @@ create table if not exists product (
 
 -- PC table
 create table if not exists pc (
-	id bigint not null auto_increment,
+    id bigint not null auto_increment,
     model varchar(50) not null,
     ram_size smallint default null,
     hdd_size real default null,
@@ -26,7 +26,7 @@ create table if not exists pc (
 
 -- Laptop table
 create table if not exists phone (
-	id bigint not null auto_increment,
+    id bigint not null auto_increment,
     model varchar(50) not null,
     ram_size smallint default null,
     hdd_size real default null,
@@ -39,13 +39,13 @@ create table if not exists phone (
 
 -- Printer table
 create table if not exists printer (
-	id bigint not null auto_increment,
+    id bigint not null auto_increment,
     model varchar(50) not null,
     color varchar(10) default null,
     type varchar(50) default null,
     price decimal(10,2) default null,
 
-	primary key (id),
+    primary key (id),
     foreign key (model) references product (model)   
 ) engine=InnoDB default charset=utf8;
 
