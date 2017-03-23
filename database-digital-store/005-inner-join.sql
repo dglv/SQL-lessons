@@ -11,7 +11,7 @@ use digital_store;
 select pc.model, product.manufacturer
 from pc
 inner join product on pc.model = product.model
-order by product.manufacturer ASC;
+order by product.manufacturer asc;
 
 /*
     Select all computers with prices and manufacturers. Sort the results by price in descending order.
@@ -20,7 +20,7 @@ order by product.manufacturer ASC;
 select a.model, b.manufacturer, a.ram_size, a.hdd_size, a.cd, a.price
 from pc a
 inner join product b on a.model = b.model
-order by a.price DESC;
+order by a.price desc;
 
 /*
     Find out all printers where the manufacturer is "Hewlett-Packard". Sort the results by price in descending order.
@@ -30,7 +30,7 @@ order by a.price DESC;
 select a.model, b.manufacturer, a.color, a.type, a.price
 from printer a
 inner join product b on a.model = b.model and b.manufacturer = "Hewlett-Packard"
-order by a.price DESC;
+order by a.price desc;
 
 /*
     Find out the printer with the highest price (the lowest price) where the manufacturer is "Hewlett-Packard".
@@ -40,12 +40,12 @@ order by a.price DESC;
 select a.model, b.manufacturer, a.color, a.type, a.price
 from printer a
 inner join product b on a.model = b.model and b.manufacturer = "Hewlett-Packard"
-order by a.price DESC LIMIT 1;
+order by a.price desc limit 1;
 
 select a.model, b.manufacturer, a.color, a.type, a.price
 from printer a
 inner join product b on a.model = b.model and b.manufacturer = "Hewlett-Packard"
-order by a.price ASC LIMIT 1;
+order by a.price asc limit 1;
 
 /*
     Select all phones where the manufacturer is NOT Apple. Sort the results by manufacturer.
@@ -54,6 +54,18 @@ order by a.price ASC LIMIT 1;
 select phone.model, product.manufacturer, phone.ram_size, phone.hdd_size, phone.screen_size, phone.price
 from phone
 inner join product on phone.model = product.model and product.manufacturer <> "Apple"
-order by product.manufacturer DESC;
+order by product.manufacturer desc;
+
+/*
+    Find out PCs which hdd size is more or equal to 512GB. Sort the results by price in ascending order.
+    Outout: model, manufacturer, hdd_size, price. 
+*/
+select pc.model, product.manufacturer, pc.hdd_size, pc.price
+from pc
+inner join product on pc.model = product.model
+where  pc.hdd_size >= 512
+order by pc.price;
+
+
 
 
