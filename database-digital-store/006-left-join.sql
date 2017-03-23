@@ -21,5 +21,5 @@ NOTE: inner join keyword returns just full filled entities.
 select phone.model, product.manufacturer, phone.ram_size, phone.hdd_size, phone.screen_size, phone.price
 from phone
 inner join product on phone.model = product.model and product.manufacturer = "Apple"
-order by product.manufacturer DESC
+order by product.manufacturer DESC;
 */

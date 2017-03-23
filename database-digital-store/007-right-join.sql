@@ -14,3 +14,5 @@ select phone.model, product.manufacturer, phone.ram_size, phone.hdd_size, phone.
 from phone
 right outer join product on phone.model = product.model and product.manufacturer = "Apple"
 order by product.manufacturer DESC;
+
+

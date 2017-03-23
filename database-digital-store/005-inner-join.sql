@@ -47,4 +47,13 @@ from printer a
 inner join product b on a.model = b.model and b.manufacturer = "Hewlett-Packard"
 order by a.price ASC LIMIT 1;
 
+/*
+    Select all phones where the manufacturer is NOT Apple. Sort the results by manufacturer.
+    Output: phone.model, product.manufacturer, phone.ram_size, phone.hdd_size, phone.screen_size, phone.price
+*/
+select phone.model, product.manufacturer, phone.ram_size, phone.hdd_size, phone.screen_size, phone.price
+from phone
+inner join product on phone.model = product.model and product.manufacturer <> "Apple"
+order by product.manufacturer DESC;
+
 
