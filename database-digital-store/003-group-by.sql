@@ -27,17 +27,27 @@ inner join product on phone.model = product.model
 order by phone.price DESC;
 /* FIXME: how to obtain top phone of each manufacturer from the output above? */
 
+select phone.id, phone.model, b.manufacturer, phone.ram_size, phone.hdd_size, phone.screen_size, phone.price
+from phone
+inner join(
+    select a.id, product.manufacturer, a.price
+    from phone as a
+    inner join product on a.model = product.model
+    group by product.manufacturer
+) b on b.id = phone.id and b.price = phone.price;
+/*FIXME: I need to insert the max clause for price anywhere...*/
+
 
 /*
     Find out the highest price (the lowest price) of each manufacturer.
     Output: manufacturer, price 
 */
-select product.manufacturer, min(phone.price) as price
+select product.manufacturer, max(phone.price) as price
 from product
 inner join phone on phone.model = product.model
 group by product.manufacturer;
 
-select product.manufacturer, max(phone.price) as price
+select product.manufacturer, min(phone.price) as price
 from product
 inner join phone on phone.model = product.model
 group by product.manufacturer;
