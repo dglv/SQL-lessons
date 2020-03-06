@@ -21,3 +21,16 @@ from product
 where model in (
     select model from printer
 );
+
+/*
+    Find out all manufacturers of printers and phones
+    Output: name
+*/
+# version 3
+select distinct manufacturer as name
+from product
+where model in (
+  select model from printer
+  union
+  select model from phone
+);
